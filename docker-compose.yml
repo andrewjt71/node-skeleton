@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  node:
+    profiles:
+      - "utils" # Prevents from being added with up because we are running this ad-hoc rather than with docker compose up
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "9229:9229" # As we are not running this with docker compose run not docker compose up, we will need to use --service-ports flag

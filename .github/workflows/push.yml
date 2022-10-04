@@ -1,0 +1,13 @@
+name: Push actions
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: ./bin/docker/build
+      - name: Lint the codebase
+        run: ./bin/docker/npm run lint
+      - name: Run unit tests on the codebase
+        run: ./bin/docker/npm run test
