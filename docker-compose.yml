@@ -10,4 +10,4 @@ services:
     volumes:
       - ./:/app
     ports:
-      - "9229:9229" # As we are not running this with docker compose run not docker compose up, we will need to use --service-ports flag
+      - $NODE_LOCAL_DEBUG_PORT:$NODE_DOCKER_DEBUG_PORT # As we are not running this with docker compose run not docker compose up, we will need to use --service-ports flag
